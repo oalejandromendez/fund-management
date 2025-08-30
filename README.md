@@ -1,59 +1,52 @@
-# FundManagement
+# Fund Management - Prueba Técnica
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.0.
+Aplicación web para manejo de fondos (FPV/FIC) para clientes BTG, desarrollada en **Angular 20** usando **Signals**, **RxJS**, **Angular Material** y **Tailwind CSS**.
 
-## Development server
+### Funcionalidades
+- Visualizar la lista de fondos disponibles.
+- Suscribirse a un fondo si cumple con el monto mínimo.
+- Cancelar suscripciones y ver el saldo actualizado.
+- Visualizar historial de transacciones.
+- Seleccionar método de notificación (Email o SMS) al suscribirse.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## Requisitos
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Node.js >= 18
+- npm >= 9
+- Angular CLI >= 17
+- Navegador moderno (Chrome, Edge, Firefox)
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Instalación y ejecución
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+### 2. Instalar dependencias
 
 ```bash
-ng build
-```
+npm install
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### 3. Configuración y ejecución del backend simulado
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Se utiliza **json-server** para simular la API REST.
 
 ```bash
-ng test
-```
+npm run mock
 
-## Running end-to-end tests
+- Este comando levanta el mock en el **puerto 3000** por defecto.  
+- Si otro servicio ya está usando el puerto 3000, modifica el puerto en el archivo `proxy.conf.json`.
 
-For end-to-end (e2e) testing, run:
+
+### 4. Ejecución del frontend
 
 ```bash
-ng e2e
-```
+npm start
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### Notas adicionales
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- La aplicación usa **Signals** para el estado reactivo del usuario y los fondos.
+- Todas las operaciones de suscripción y cancelación actualizan el saldo y las transacciones en **tiempo real**.
+- Se utiliza **Angular Material** para la interfaz y **Tailwind CSS** para estilos adicionales.
+- En caso de errores de conexión con el backend, revisa que **json-server** esté corriendo en el puerto correcto.
+- No es necesario configurar backend ni autenticación; el usuario inicial tiene un saldo de **COP $500.000**.

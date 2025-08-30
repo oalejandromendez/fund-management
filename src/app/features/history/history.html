@@ -1,0 +1,67 @@
+<div class="p-4">
+
+    <mat-card class="shadow-lg rounded-2xl">
+
+        <mat-card-header class="flex items-center justify-between">
+            <mat-card-title class="text-2xl font-bold">Historial de Transacciones</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content class="!mt-4">
+            @if(user() && (user()?.transactions ?? []).length > 0) {
+            <div>
+                <table mat-table [dataSource]="transactions()" matSort class="mat-elevation-z8 w-full">
+
+                    <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header
+                            class="bg-gray-200 text-gray-700 font-semibold">
+                            Fecha de Suscripción
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{ element.date | date:'dd/MM/yyyy' }} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header
+                            class="bg-gray-200 text-gray-700 font-semibold">
+                            Nombre
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{ element.fundName }} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="amount">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header
+                            class="bg-gray-200 text-gray-700 font-semibold">
+                            Monto
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{ element.amount | money }} </td>
+
+                    </ng-container>
+
+                    <ng-container matColumnDef="type">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header
+                            class="bg-gray-200 text-gray-700 font-semibold">
+                            Categoría
+                        </th>
+                        <td mat-cell *matCellDef="let t">
+                            <span class="px-2 py-1 rounded-full text-white text-xs font-semibold"
+                                [ngClass]="{'bg-green-500': t.type === 'subscribe', 'bg-red-500': t.type === 'unsubscribe'}">
+                                {{ t.type === 'subscribe' ? 'Suscripción' : 'Cancelación' }}
+                            </span>
+                        </td>
+
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+            </div>
+            } @else {
+            <h1 class="text-gray-800">
+                Actualmente no existen transacciones para el usuario.
+            </h1>
+            }
+
+        </mat-card-content>
+
+    </mat-card>
+</div>

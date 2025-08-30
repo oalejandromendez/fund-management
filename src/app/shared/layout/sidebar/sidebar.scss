@@ -1,0 +1,56 @@
+.label-menu {
+  font-size: 16px;
+  padding: 5px 0 0 10px;
+}
+
+.list-item-active {
+  background-color: #03a9f4 !important;
+}
+
+a.list-item-active .label-menu {
+  color: white !important; 
+}
+
+a.mat-mdc-list-item:hover::before {
+  background-color: transparent !important;
+}
+
+a.mat-mdc-list-item:hover .label-menu {
+  color: #04a9f5 !important;
+}
+
+a.list-item-active:hover .label-menu {
+  color: white !important;
+}
+
+a.mat-mdc-list-item:focus::before,
+a.mat-mdc-list-item:active::before {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+mat-sidenav::-webkit-scrollbar {
+  width: 6px;
+}
+
+mat-sidenav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+mat-sidenav::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 9999px;
+}
+
+mat-sidenav::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+mat-sidenav {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.mat-mdc-nav-list .mat-mdc-list-item:hover, .mat-mdc-nav-list .mat-mdc-list-item:focus {
+    color: #04a9f5 !important;
+}

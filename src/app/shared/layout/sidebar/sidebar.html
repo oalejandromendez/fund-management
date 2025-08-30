@@ -1,0 +1,21 @@
+<mat-sidenav-container class="h-screen">
+  <mat-sidenav mode="side" opened class="!w-55 !bg-white">
+    <mat-nav-list>
+      @for (item of menuItems; track item.label) {
+      <a mat-list-item [routerLink]="[item.route]" routerLinkActive="list-item-active" class="transition" class="nav-menu">
+        <div class="flex items-center gap-2 w-full">
+          <img src="/images/menu/{{item.icon}}.png" alt="{{item.label}}" class="w-6 h-6">
+          <span class="label-menu">{{ item.label }}</span>
+        </div>
+      </a>
+      }
+      <mat-divider></mat-divider>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="p-4">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
