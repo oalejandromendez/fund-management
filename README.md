@@ -22,10 +22,18 @@ Aplicación web para manejo de fondos (FPV/FIC) para clientes BTG, desarrollada 
 
 ## Instalación y ejecución
 
+### 1. Clonar el repositorio:
+
+```bash
+git clone https://github.com/oalejandromendez/fund-management.git
+cd fund-management
+```
+
 ### 2. Instalar dependencias
 
 ```bash
 npm install
+```
 
 ### 3. Configuración y ejecución del backend simulado
 
@@ -33,6 +41,7 @@ Se utiliza **json-server** para simular la API REST.
 
 ```bash
 npm run mock
+```
 
 - Este comando levanta el mock en el **puerto 3000** por defecto.  
 - Si otro servicio ya está usando el puerto 3000, modifica el puerto en el archivo `proxy.conf.json`.
@@ -42,6 +51,7 @@ npm run mock
 
 ```bash
 npm start
+```
 
 ### Notas adicionales
 
